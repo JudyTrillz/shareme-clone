@@ -1,0 +1,17 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "shareme-tut complex tasks",
+  "steps": [
+    {
+      "file": "shareme-frontend/src/main.jsx",
+      "description": "Import BrowserRouter as Router and use it to wrap on the App component not the StrictMode Component. See line 9 - 11",
+      "line": 5
+    },
+    {
+      "file": "shareme-frontend/src/App.jsx",
+      "description": "Import Routes and Route... Use Routes to wrap the areas which needs to be Routed to and then Route to set the path and elements... See line 9 & 10 for example",
+      "line": 2
+    }
+  ],
+  "ref": "main"
+}
