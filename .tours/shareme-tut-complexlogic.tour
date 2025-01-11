@@ -1,0 +1,37 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "shareme-tut-complexLogic",
+  "steps": [
+    {
+      "file": "shareme-frontend/src/main.jsx",
+      "description": "After install react-router-dom, We import BrowserRouter and wrap the App component inside. \r\nSee line 12 - 16 for more.",
+      "line": 5
+    },
+    {
+      "file": "shareme-frontend/src/App.jsx",
+      "description": "Import Routes and Route and useNavigate from react-router-dom and wrap all components that needs to be routed within the Routes tag and use the Route component to route each component and set their path to the file path,\r\n\r\nsee line 8 - 11 as of this commit, Then line 8 and below for future commits",
+      "line": 2
+    },
+    {
+      "file": "shareme-frontend/src/main.jsx",
+      "description": "Imported Google authentication provider from react Google and use the Google authentication provider to wrap the entire application to enable Google authentication for the entire app. After that I saved my client ID from Google in my .ENV file. I imported the client id saved it in a variable and used it as my client id for my Google authentication provider",
+      "line": 6
+    },
+    {
+      "file": "shareme-frontend/src/components/Login.jsx",
+      "description": "I imported the useGoogleLogin function from React authentication and generated a function named login. In the login function, I sent a local fetch request to google api to get the info from my login user. After getting the info, I saved it to localStorage for future use. ",
+      "line": 1
+    },
+    {
+      "file": "shareme-frontend/src/client.jsx",
+      "description": "1. imported createClient from sanity to link the frontend to the backend and then, exported a client function with the createClient object, containing the following props: \r\n * projectId: \r\n * dataset: \"production\",\r\n * useCdn: true,\r\n * apiVersion: \"2025-01-09\",\r\n * token: \r\n * ignoreBrowserTokenWarning: true,\r\n\r\n2. import imageUrlBuilder to build Image from the source in the client.",
+      "line": 1
+    },
+    {
+      "file": "shareme-frontend/src/components/Login.jsx",
+      "description": "Imported useGoogleLogin so i can make use of a custom login button. I created a login function which calls the useGoogleLogin function and performs an async function call to google api.  onSuccess, the call returns the data in json format (The details of the user that logged in). After the user is returned we save it to localStorage for future use and also, we use our sanity client to create a new user in our backend with the details returned. See line 11 - 44 ",
+      "line": 1
+    }
+  ],
+  "ref": "main"
+}
