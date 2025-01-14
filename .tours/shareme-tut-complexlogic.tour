@@ -31,6 +31,21 @@
       "file": "shareme-frontend/src/components/Login.jsx",
       "description": "Imported useGoogleLogin so i can make use of a custom login button. I created a login function which calls the useGoogleLogin function and performs an async function call to google api.  onSuccess, the call returns the data in json format (The details of the user that logged in). After the user is returned we save it to localStorage for future use and also, we use our sanity client to create a new user in our backend with the details returned. See line 11 - 44 ",
       "line": 1
+    },
+    {
+      "file": "shareme-frontend/src/util/data.js",
+      "description": "create a function to run a sanity query. The function takes an id param and the query simply means: Get me a document with type = user and the id of the user = id param. and at the end of the function we return the query",
+      "line": 1
+    },
+    {
+      "file": "shareme-frontend/src/container/Home.jsx",
+      "description": "We retrieve the userInfo from the local storage so we can use the id in our query function ",
+      "line": 17
+    },
+    {
+      "file": "shareme-frontend/src/container/Home.jsx",
+      "description": "Create a useEffect that runs anytime the component loads to fetch the user based on the query id param. We use our client obj to fetch the query and then set the user to the data returned with that specific id",
+      "line": 22
     }
   ],
   "ref": "main"

@@ -35,10 +35,10 @@ const Login = () => {
             navigate("/", { replace: true });
           });
         } else {
-          throw new Error("Failed to fetch user information");
+          throw new Error("Failed to create new user, Something wet wrong");
         }
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     },
   });
@@ -60,11 +60,11 @@ const Login = () => {
             <img src={logo} alt="logo" loading="eager" className="w-40" />
           </div>
 
-          <div
-            className="shadow-2xl bg-white flex items-center justify-center p-2 rounded-lg gap-2  cursor-pointer font-bold"
+          <button
+            className="shadow-2xl bg-mainColor flex items-center justify-center p-3 rounded-lg gap-2  cursor-pointer font-bold outline-none "
             onClick={() => login()}>
             <FcGoogle /> Sign In with Google
-          </div>
+          </button>
         </div>
       </div>
     </main>
