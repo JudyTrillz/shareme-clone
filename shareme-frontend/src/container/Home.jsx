@@ -52,7 +52,7 @@ const Home = () => {
             <img src={logo} alt="logo" loading="eager" className="w-28" />
           </Link>
 
-          <Link to={`user-profile/${user?._id}`}>
+          <Link to={`/user-profile/${user?._id}`}>
             <img
               src={user?.image}
               alt="userLogo"
@@ -63,8 +63,8 @@ const Home = () => {
         </div>
 
         {toggleSideBar && (
-          <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
-            <div className="absolute w-full flex justify-end items-center p-2">
+          <aside className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
+            <div className="absolute top-5 right-5 w-full flex justify-end items-center p-2">
               <AiFillCloseCircle
                 fontSize={30}
                 className="cursor-pointer"
@@ -72,16 +72,18 @@ const Home = () => {
               />
             </div>
             <Sidebar user={user && user} closeToggle={setToggleSideBar} />
-          </div>
+          </aside>
         )}
       </nav>
 
-      <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
+      <section
+        className="pb-2 flex-1 h-screen overflow-y-scroll"
+        ref={scrollRef}>
         <Routes>
-          <Route path="user-profile/:userId" element={<UserProfile />} />
-          <Route path="/" element={<Pins user={user && user} />} />
+          <Route path="/user-profile/:userId" element={<UserProfile />} />
+          <Route path="/*" element={<Pins user={user && user} />} />
         </Routes>
-      </div>
+      </section>
     </main>
   );
 };
