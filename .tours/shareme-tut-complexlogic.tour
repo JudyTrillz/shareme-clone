@@ -38,6 +38,11 @@
       "line": 1
     },
     {
+      "file": "shareme-frontend/src/util/data.js",
+      "description": "This function is created to fetch a query of type pin. The title of the pin, the category of the pin and the about of the pin must all match the search term.\r\n\r\nFrom the retrieved pin, we want the image, id of who posted, destination ref, who posted the pin, an array of people who saved the pin and also an array of people who commented. ",
+      "line": 6
+    },
+    {
       "file": "shareme-frontend/src/container/Home.jsx",
       "description": "We retrieve the userInfo from the local storage so we can use the id in our query function ",
       "line": 17
@@ -46,6 +51,11 @@
       "file": "shareme-frontend/src/container/Home.jsx",
       "description": "Create a useEffect that runs anytime the component loads to fetch the user based on the query id param. We use our client obj to fetch the query and then set the user to the data returned with that specific id",
       "line": 22
+    },
+    {
+      "file": "shareme-frontend/src/components/Feed.jsx",
+      "description": "Created a useEffect to fetch a post based on the query for a category or all the post if no category. See data.js for the full query function. When we fetch the data from sanity we then set the pins to that data ",
+      "line": 15
     }
   ],
   "ref": "main"
