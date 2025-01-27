@@ -56,6 +56,11 @@
       "file": "shareme-frontend/src/components/Feed.jsx",
       "description": "Created a useEffect to fetch a post based on the query for a category or all the post if no category. See data.js for the full query function. When we fetch the data from sanity we then set the pins to that data ",
       "line": 15
+    },
+    {
+      "file": "shareme-frontend/src/components/Pin.jsx",
+      "description": "The savePin function is simply a function that patches the document already saved in sanity with an array of a saved item. Making the saved array add to its number.\r\nIn the function, we checked if the post has been saved (line25) and then we patch the post with the following:\r\n\r\nclient\r\n        .patch(id)\r\n        .setIfMissing({ save: [] })\r\n        .insert(\"after\", \"save[-1]\", [\r\n          {\r\n            _key: uuidv4(),\r\n            userId: user.id,\r\n            postedBy: {\r\n              _type: \"postedBy\",\r\n              _ref: user.id,\r\n            },\r\n          },\r\n        ])\r\n        .commit()\r\n        .then(() => {\r\n          window.location.reload();\r\n        });",
+      "line": 24
     }
   ],
   "ref": "main"
