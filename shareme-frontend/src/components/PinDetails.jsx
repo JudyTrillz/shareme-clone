@@ -1,4 +1,4 @@
-const PinDetails = () => {
+const PinDetails = ({ user }) => {
   return <div>Pin details</div>;
 };
 

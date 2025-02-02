@@ -1,6 +1,6 @@
 import propTypes from "prop-types";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 import { MdDownloadForOffline } from "react-icons/md";
@@ -15,6 +15,7 @@ const Pin = ({ pin: { image, postedBy, _id, destination, save } }) => {
   const navigate = useNavigate();
 
   const user = fetchUser();
+  console.log(postedBy);
 
   const alreadySaved = !!(
     save?.filter((save) => save.postedBy._id === user?.id) ?? []
@@ -123,7 +124,7 @@ const Pin = ({ pin: { image, postedBy, _id, destination, save } }) => {
                     e.stopPropagation();
                     deletePin(_id);
                   }}
-                  className="bg-white p-2 opacity-70 hover:opacity-100 text-dark font-bold  text-base rounded-3xl hover:shadow-md transition-all duration-500 ease-out outline-none">
+                  className="bg-white p-2 opacity-70 hover:opacity-100 text-black font-bold  text-base rounded-3xl hover:shadow-md transition-all duration-500 ease-out outline-none">
                   <AiTwotoneDelete />
                 </button>
               )}
@@ -131,6 +132,16 @@ const Pin = ({ pin: { image, postedBy, _id, destination, save } }) => {
           </div>
         )}
       </div>
+      <Link
+        to={`/user-profile/${postedBy?._id}`}
+        className="flex gap-2 mt-2 items-center">
+        <img
+          src={postedBy?.image}
+          className="w-8 h-8 rounded-full object-cover"
+          alt="user-image"
+        />
+        <p className="font-semibold capitalize"> {postedBy?.userName}</p>
+      </Link>
     </div>
   );
 };
