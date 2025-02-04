@@ -34,7 +34,7 @@ export const Pin = defineType({
       },
     }),
     defineField({
-      name: 'usedId',
+      name: 'userId',
       title: 'UserID',
       type: 'string',
     }),
