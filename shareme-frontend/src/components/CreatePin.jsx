@@ -11,10 +11,12 @@ import { categories } from "../util/data";
 const CreatePin = ({ user }) => {
   const [imageAsset, setImageAsset] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const [title, setTitle] = useState("");
+  const [about, setAbout] = useState("");
   const [destination, setDestination] = useState("");
   const [category, setCategory] = useState(null);
-  const [about, setAbout] = useState("");
+
   const [fields, setFields] = useState(false);
   const [wrongImageType, setWrongImageType] = useState(false);
 
@@ -49,14 +51,7 @@ const CreatePin = ({ user }) => {
   };
 
   const savePin = () => {
-    if (
-      title &&
-      destination &&
-      category &&
-      about &&
-      imageAsset?._id &&
-      user?._id
-    ) {
+    if (imageAsset?._id && title && about && destination && category && user?._id) {
       const pin = {
         _type: "pin",
         title,
@@ -65,9 +60,7 @@ const CreatePin = ({ user }) => {
           : `https://${destination}`,
         about,
         category:
-          typeof category === "object"
-            ? category?.name || category?.value
-            : category,
+          typeof category === "object" ? category?.name || category?.value : category,
         image: {
           _type: "image",
           asset: {
@@ -86,12 +79,15 @@ const CreatePin = ({ user }) => {
         navigate("/");
       });
     } else {
-      return;
+      setFields(true);
+      setTimeout(() => {
+        setFields(false);
+      }, 2000);
     }
   };
 
   return (
-    <div className="flex fleX-col items-center justify-center mt-5 lg:h-4/5">
+    <div className="flex flex-col items-center justify-center mt-5 lg:h-4/5">
       {fields && (
         <p className="text-red-500 font-bold capitalize mb-5 text-xl transition-all duration-150 ease-in">
           Please fill in all the fields
@@ -114,8 +110,7 @@ const CreatePin = ({ user }) => {
                       <p className="text-lg"> Click to upload</p>
                     </div>
                     <p className="mt-14 lg:mt-32 text-gray-400 text-center">
-                      Use high quality images (JPG, PNG, SVG, GIF) less than 20
-                      Mb
+                      Use high quality images (JPG, PNG, SVG, GIF) less than 20 Mb
                     </p>
                   </div>
                   <input
@@ -183,9 +178,7 @@ const CreatePin = ({ user }) => {
 
           <div className="flex flex-col">
             <div className="">
-              <p className="mb-2 font-semibold text-lg sm:text-xl">
-                Choose a category
-              </p>
+              <p className="mb-2 font-semibold text-lg sm:text-xl">Choose a category</p>
 
               <select
                 onChange={(e) => setCategory(e.target.value)}
