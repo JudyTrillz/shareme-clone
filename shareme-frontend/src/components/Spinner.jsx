@@ -1,7 +1,7 @@
 import { Circles } from "react-loader-spinner";
 import PropTypes from "prop-types";
 
-const Spinner = ({ message }) => {
+export const Spinner = ({ message }) => {
   return (
     <div className="flex flex-col justify-center items-center w-full h-full ">
       <Circles

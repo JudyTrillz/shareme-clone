@@ -66,6 +66,11 @@
       "file": "shareme-frontend/src/components/Pin.jsx",
       "description": "A simple delete function to delete a pin that has a specific id and then run a window reload",
       "line": 45
+    },
+    {
+      "file": "shareme-frontend/src/components/PinDetails.jsx",
+      "description": "this function fetches a particular pin and then when the pin is gotten, we use that same pin to search for other pins with the same category\r\n",
+      "line": 21
     }
   ],
   "ref": "main"
