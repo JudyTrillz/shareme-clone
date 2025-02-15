@@ -1,6 +1,7 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+// import { AiOutlineUser } from "react-icons/ai";
 import logo from "../assets/logowhite.png";
 import loginVideo from "../assets/share.mp4";
 import { client } from "../client";
@@ -11,14 +12,11 @@ const Login = () => {
   const login = useGoogleLogin({
     onSuccess: async (res) => {
       try {
-        const data = await fetch(
-          "https://www.googleapis.com/oauth2/v1/userinfo",
-          {
-            headers: {
-              Authorization: `Bearer ${res.access_token}`,
-            },
-          }
-        );
+        const data = await fetch("https://www.googleapis.com/oauth2/v1/userinfo", {
+          headers: {
+            Authorization: `Bearer ${res.access_token}`,
+          },
+        });
         if (data.ok) {
           const userInfo = await data.json();
           const { id, name, picture } = userInfo;
@@ -59,6 +57,12 @@ const Login = () => {
           <div className="p-5">
             <img src={logo} alt="logo" loading="eager" className="w-40" />
           </div>
+
+          {/* <button
+            className="shadow-2xl bg-mainColor flex items-center justify-center p-3 rounded-lg gap-2 mb-3  cursor-pointer font-bold outline-none "
+            onClick={() => navigate("/")}>
+            <AiOutlineUser size={24} fontWeight={900} /> View as Demo
+          </button> */}
 
           <button
             className="shadow-2xl bg-mainColor flex items-center justify-center p-3 rounded-lg gap-2  cursor-pointer font-bold outline-none "
