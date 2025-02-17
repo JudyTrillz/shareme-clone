@@ -59,9 +59,12 @@ const Login = () => {
           </div>
 
           <button
-            className="shadow-2xl bg-mainColor flex items-center justify-center p-3 rounded-lg gap-2 mb-3  cursor-pointer font-bold outline-none "
+            className="shadow-2xl bg-mainColor flex items-center justify-center p-3 rounded-lg gap-2 mb-3  cursor-pointer font-bold outline-none"
             onClick={() => navigate("/")}>
-            <AiOutlineUser size={24} fontWeight={900} /> View as Demo
+            <AiOutlineUser size={24} fontWeight={900} />
+            <p className="opacity-70 hover:opacity-100 transition-all duration-500 ease-in-out">
+              View as Demo
+            </p>
           </button>
 
           <button
