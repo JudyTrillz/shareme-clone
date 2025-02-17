@@ -51,12 +51,7 @@ const Home = () => {
           </Link>
 
           <Link to={`/user-profile/${user?._id}`}>
-            <img
-              src={user?.image}
-              alt="userLogo"
-              loading="eager"
-              className="w-28"
-            />
+            <img src={user?.image} alt="userLogo" loading="eager" className="w-28" />
           </Link>
         </div>
 
@@ -74,9 +69,7 @@ const Home = () => {
         )}
       </nav>
 
-      <section
-        className="pb-2 flex-1 h-screen overflow-y-scroll"
-        ref={scrollRef}>
+      <section className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
           <Route path="/*" element={<Pins user={user && user} />} />
