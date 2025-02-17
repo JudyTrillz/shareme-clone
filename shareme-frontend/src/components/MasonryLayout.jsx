@@ -22,7 +22,7 @@ export const MasonryLayout = ({ pins }) => {
 };
 
 MasonryLayout.propTypes = {
-  pins: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pins: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default MasonryLayout;

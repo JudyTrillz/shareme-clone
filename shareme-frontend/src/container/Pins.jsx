@@ -19,10 +19,7 @@ const Pins = ({ user }) => {
           <Route path="/category/:categoryId" element={<Feed user={user && user} />} />
           <Route path="/pin-detail/:pinId" element={<PinDetails user={user} />} />
           <Route path="/create-pin" element={<CreatePin user={user} />} />
-          <Route
-            path="/search"
-            element={<Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />}
-          />
+          <Route path="/search" element={<Search searchTerm={searchTerm} />} />
         </Routes>
       </div>
     </div>
