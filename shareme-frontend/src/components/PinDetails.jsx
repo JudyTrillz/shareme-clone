@@ -8,6 +8,7 @@ import { client, urlFor } from "../client";
 import { MasonryLayout } from "./MasonryLayout";
 import { Spinner } from "./Spinner";
 import { pinDetailMorePinQuery, pinDetailQuery } from "../util/data";
+import SignIn from "./SignIn";
 
 const PinDetails = ({ user }) => {
   const [pins, setPins] = useState(null);
@@ -134,32 +135,36 @@ const PinDetails = ({ user }) => {
             ))}
           </div>
 
-          <div className="flex items-center flex-wrap mt-6 gap-3">
-            <Link to={`/user-profile/${pinDetails.postedBy?._id}`}>
-              <img
-                src={pinDetails.postedBy?.image}
-                className="w-8 h-8 rounded-full cursor-pointer"
-                alt="user-image"
+          {user ? (
+            <div className="flex items-center flex-wrap mt-6 gap-3">
+              <Link to={`/user-profile/${pinDetails.postedBy?._id}`}>
+                <img
+                  src={pinDetails.postedBy?.image}
+                  className="w-8 h-8 rounded-full cursor-pointer"
+                  alt="user-image"
+                />
+              </Link>
+
+              <input
+                type="text"
+                name="comment"
+                id="comment"
+                placeholder="Add a comment"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                className="flex-1 border-gray-100 outline-none border-2 p-2 rounded-2xl focus:border-gray-300"
               />
-            </Link>
 
-            <input
-              type="text"
-              name="comment"
-              id="comment"
-              placeholder="Add a comment"
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-              className="flex-1 border-gray-100 outline-none border-2 p-2 rounded-2xl focus:border-gray-300"
-            />
-
-            <button
-              type="button"
-              onClick={addComment}
-              className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none">
-              {addingComment ? "Posting comment ..." : "Post"}
-            </button>
-          </div>
+              <button
+                type="button"
+                onClick={addComment}
+                className="bg-red-500 text-white rounded-full px-6 py-2 font-semibold text-base outline-none">
+                {addingComment ? "Posting comment ..." : "Post"}
+              </button>
+            </div>
+          ) : (
+            <SignIn message={"Sign in to comment"} />
+          )}
         </div>
       </div>
 

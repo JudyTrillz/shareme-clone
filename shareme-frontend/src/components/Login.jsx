@@ -1,7 +1,7 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-// import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 import logo from "../assets/logowhite.png";
 import loginVideo from "../assets/share.mp4";
 import { client } from "../client";
@@ -58,11 +58,11 @@ const Login = () => {
             <img src={logo} alt="logo" loading="eager" className="w-40" />
           </div>
 
-          {/* <button
+          <button
             className="shadow-2xl bg-mainColor flex items-center justify-center p-3 rounded-lg gap-2 mb-3  cursor-pointer font-bold outline-none "
             onClick={() => navigate("/")}>
             <AiOutlineUser size={24} fontWeight={900} /> View as Demo
-          </button> */}
+          </button>
 
           <button
             className="shadow-2xl bg-mainColor flex items-center justify-center p-3 rounded-lg gap-2  cursor-pointer font-bold outline-none "

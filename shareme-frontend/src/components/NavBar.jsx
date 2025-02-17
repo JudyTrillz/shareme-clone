@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import propTypes from "prop-types";
 
 import { IoMdAdd, IoMdSearch } from "react-icons/io";
 
@@ -22,11 +23,7 @@ const NavBar = ({ searchTerm, setSearchTerm, user }) => {
       {user && (
         <div className="flex gap-3">
           <Link to={`/user-profile/${user?._id}`} className="hidden md:block">
-            <img
-              src={user.image}
-              alt="User photo"
-              className="w-14 h-12 rounded-lg"
-            />
+            <img src={user.image} alt="User photo" className="w-14 h-12 rounded-lg" />
           </Link>
           <Link
             to="/create-pin"
@@ -37,6 +34,12 @@ const NavBar = ({ searchTerm, setSearchTerm, user }) => {
       )}
     </div>
   );
+};
+
+NavBar.propTypes = {
+  searchTerm: propTypes.array,
+  setSearchTerm: propTypes.array,
+  user: propTypes.object,
 };
 
 export default NavBar;
