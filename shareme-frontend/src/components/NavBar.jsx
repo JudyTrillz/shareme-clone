@@ -37,8 +37,8 @@ const NavBar = ({ searchTerm, setSearchTerm, user }) => {
 };
 
 NavBar.propTypes = {
-  searchTerm: propTypes.array,
-  setSearchTerm: propTypes.array,
+  searchTerm: propTypes.string,
+  setSearchTerm: propTypes.func,
   user: propTypes.object,
 };
 

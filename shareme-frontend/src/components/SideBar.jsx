@@ -1,18 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import { RiHomeFill } from "react-icons/ri";
 // import { IoIosArrowForward } from "react-icons/io";
 
 import logo from "../assets/logo.png";
 
-const categories = [
-  { name: "Animals" },
-  { name: "Gaming" },
-  { name: "Technology" },
-  { name: "Food" },
-  { name: "Cars" },
-  { name: "Houses" },
-];
+import { categories } from "../util/data";
 
 const isNotActiveStyles =
   "flex items-center px-5 gap-3 text-gray-500 hover:text-black hover:font-extrabold transition-all duration-200 ease-in-out capitalize";
@@ -40,17 +34,13 @@ const SideBar = ({ user, closeToggle }) => {
         <div className="flex flex-col gap-5">
           <NavLink
             to={"/"}
-            className={({ isActive }) =>
-              isActive ? isActiveStyles : isNotActiveStyles
-            }
+            className={({ isActive }) => (isActive ? isActiveStyles : isNotActiveStyles)}
             onClick={handleCloseSideBar}>
             <RiHomeFill />
             Home
           </NavLink>
 
-          <h3 className="mt-2 px-5 text-base 2xl:text-xl">
-            Discover Categories
-          </h3>
+          <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover Categories</h3>
 
           {categories.slice(0, categories.length - 1).map((category) => (
             <NavLink
@@ -60,6 +50,11 @@ const SideBar = ({ user, closeToggle }) => {
                 isActive ? isActiveStyles : isNotActiveStyles
               }
               onClick={handleCloseSideBar}>
+              <img
+                src={category.image}
+                alt="category image"
+                className="w-8 h-8 rounded-full shadow-sm"
+              />
               {category.name}
             </NavLink>
           ))}
@@ -71,16 +66,17 @@ const SideBar = ({ user, closeToggle }) => {
           to={`/user-profile/${user._id}`}
           className="flex items-center my-5 mb-3 gap-2 p-2 bg-white rounded-lg shadow-lg mx-3"
           onClick={handleCloseSideBar}>
-          <img
-            src={user.image}
-            alt="user Image"
-            className="w-10 h-10 rounded-full"
-          />
+          <img src={user.image} alt="user Image" className="w-10 h-10 rounded-full" />
           <p>{user.userName}</p>
         </Link>
       )}
     </div>
   );
+};
+
+SideBar.propTypes = {
+  user: PropTypes.object,
+  closeToggle: PropTypes.func,
 };
 
 export default SideBar;
