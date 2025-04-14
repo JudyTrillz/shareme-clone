@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { HiMenu } from "react-icons/hi";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { Link, Route, Routes } from "react-router-dom";
+import { FaSignInAlt } from "react-icons/fa";
+
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 
 import { Sidebar, UserProfile } from "../components";
 import Pins from "./Pins";
@@ -15,6 +17,7 @@ const Home = () => {
   const [toggleSideBar, setToggleSideBar] = useState(false);
   const [user, setUser] = useState(null);
   const scrollRef = useRef(null);
+  const navigate = useNavigate();
 
   const userInfo = fetchUser();
 
@@ -50,9 +53,18 @@ const Home = () => {
             <img src={logo} alt="logo" loading="eager" className="w-28" />
           </Link>
 
-          <Link to={`/user-profile/${user?._id}`}>
-            <img src={user?.image} alt="userLogo" loading="eager" className="w-28" />
-          </Link>
+          {user ? (
+            <Link to={`/user-profile/${user?._id}`}>
+              <img src={user?.image} alt="userLogo" loading="eager" className="w-28" />
+            </Link>
+          ) : (
+            <button
+              title="Sign In"
+              className="flex gap-3 bg-red-500 p-3 rounded-full text-white font-bold shadow-lg hover:shadow-none transition-all duration-500 ease-in-out"
+              onClick={() => navigate("/login")}>
+              <FaSignInAlt />
+            </button>
+          )}
         </div>
 
         {toggleSideBar && (
