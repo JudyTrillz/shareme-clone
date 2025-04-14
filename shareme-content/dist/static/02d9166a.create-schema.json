@@ -1,0 +1,150 @@
+[
+  {
+    "fields": [
+      {
+        "name": "userName",
+        "type": "string"
+      },
+      {
+        "name": "image",
+        "type": "string"
+      }
+    ],
+    "name": "user",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "about",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "destination",
+        "type": "url"
+      },
+      {
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "title": "UserID"
+      },
+      {
+        "to": [
+          {
+            "type": "user"
+          }
+        ],
+        "name": "postedBy",
+        "type": "postedBy",
+        "title": "PostedBy"
+      },
+      {
+        "of": [
+          {
+            "type": "save"
+          }
+        ],
+        "name": "save",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "type": "comment"
+          }
+        ],
+        "name": "comments",
+        "type": "array"
+      }
+    ],
+    "name": "pin",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "to": [
+          {
+            "type": "user"
+          }
+        ],
+        "name": "postedBy",
+        "type": "postedBy",
+        "title": "PostedBy"
+      },
+      {
+        "name": "comment",
+        "type": "string"
+      }
+    ],
+    "name": "comment",
+    "type": "document"
+  },
+  {
+    "to": [
+      {
+        "type": "user"
+      }
+    ],
+    "name": "postedBy",
+    "type": "reference",
+    "title": "PostedBy"
+  },
+  {
+    "fields": [
+      {
+        "to": [
+          {
+            "type": "user"
+          }
+        ],
+        "name": "postedBy",
+        "type": "postedBy",
+        "title": "PostedBy"
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "title": "UserID"
+      }
+    ],
+    "name": "save",
+    "type": "document"
+  }
+]
